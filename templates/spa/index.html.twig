@@ -8,13 +8,23 @@
 {# table for testing, remove when react is ready #}
 <table>
     <tr>
-        <th>Name</th>   
-        <th>Image</th>   
+        <th>Id</th> 
+        <th>Name</th>      
+        <th>Image</th>  
+        <th>Watering</th>   
+        <th>Conditions</th>   
+        <th>Difficulty</th>   
+        <th>Pet friendly</th>   
     </tr>
      {% for plant in plants %}
     <tr>
+    <td>{{plant.id}}</td>
     <td>{{plant.name}}</td>
     <td><img src="{{plant.img}}"></td>
+    <td>{{plant.water}}</td>    
+    <td>{{plant.conditions}}</td>    
+    <td>{{plant.difficulty}}</td>    
+    <td>{{plant.pets}}</td>    
     </tr>
     {% endfor %}
 </table>
