@@ -1,4 +1,4 @@
-# Symfony - Summer project 2022
+# Summer project 2022
 
 Simple Symfony and React app for plant care.
 
