@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ToDo List{% endblock %}
+
+{% block body %}
+
+<div id="app">
+<ul>
+    {% for plant in plants %}
+    <li>{{plant.name}}</li>
+    <a href="{{plant.img}}">
+    {% endfor %}
+</ul>
+</div>
+
+{% endblock %}
