@@ -5,12 +5,18 @@
 {% block body %}
 
 <div id="app">
-<ul>
-    {% for plant in plants %}
-    <li>{{plant.name}}</li>
-    <a href="{{plant.img}}">
+<table>
+    <tr>
+        <th>Name</th>   
+        <th>Image</th>   
+    </tr>
+     {% for plant in plants %}
+    <tr>
+    <td>{{plant.name}}</td>
+    <td><img src="{{plant.img}}"></td>
+    </tr>
     {% endfor %}
-</ul>
+</table>
 </div>
 
 {% endblock %}
