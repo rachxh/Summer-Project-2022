@@ -4,11 +4,31 @@ const Contact = () => {
   return (
   <div>
     <form>
-      <input type="text" placeholder="First name" name="firstName"/>
-      <input type="text" placeholder="Last name" name="lastName"/>
-      <input type="email" placeholder="Email address" name="email"/>
-      <input type="textarea" placeholder="Your message" name="message" />
-      <input type="submit" name="send" id="send" value="Send Message" />
+      <div className="mb-3">
+        <label htmlFor="firstName" className="col-form-label">First Name:</label>
+      <input  className="form-control" type="text" placeholder="First name" name="firstName"/>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="lastName" className="col-form-label">Last Name:</label>
+      <input  className="form-control" type="text"  name="lastName"/>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="email" className="col-form-label">Email:</label>
+      <input  className="form-control" type="email"  name="email"/>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="phone" className="col-form-label">Phone:</label>
+      <input  className="form-control" type="phone"  name="phone"/>
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="message" className="col-form-label">Message:</label>
+      <input  className="form-control" type="textarea"  name="message"/>
+      </div>
+      <div className="mb-3">
+       <button type="button" className="btn btn-success">Send Message</button>
+      </div>
+
     </form>
   </div>
   )

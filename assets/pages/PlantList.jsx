@@ -19,7 +19,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="Plant-list">
+    <div>
       <form className="search-form">
         <input
           type="text"
@@ -29,15 +29,16 @@ useEffect(() => {
           onChange={updateSearch}
         />
       </form>
+  
       <div className="plant-list">
         {/* {plants
           .filter((plant) => plant.name.includes(search))
           .map((plant) => (
             <PlantCard
-            key={p.id}
-            name={p.name}
+            key={plant.id}
+            name={plant.name}
             img={
-              p.sprites.versions["generation-v"]["black-white"].animated
+              plant.sprites.versions["generation-v"]["black-white"].animated
                 .front_default
             }
              
@@ -45,10 +46,10 @@ useEffect(() => {
           ))} */}
 
 <PlantCard
-            // key={p.id}
-            // name={p.name}
+            // key={plants.id}
+            // name={plants.name}
             // img={
-            //   p.sprites.versions["generation-v"]["black-white"].animated
+            //   plants.sprites.versions["generation-v"]["black-white"].animated
             //     .front_default
             // }
              
