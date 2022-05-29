@@ -9,7 +9,7 @@ const [search, setSearch] = useState("");
 useEffect(() => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon?limit=60&offset=0")
-      .then((res) => setRecipes(res.data));
+      .then((res) => setPlants(res.data));
   }, []);
   console.log('plants will be here', plants);
 
@@ -25,24 +25,34 @@ useEffect(() => {
           type="text"
           className="search-bar"
           value={search}
-          placeholder="Search for recipe"
+          placeholder="Search for Plants"
           onChange={updateSearch}
         />
       </form>
       <div className="plant-list">
-        {recipes
-          .filter((recipe) => recipe.name.includes(search))
-          .map((recipe) => (
+        {/* {plants
+          .filter((plant) => plant.name.includes(search))
+          .map((plant) => (
             <PlantCard
+            key={p.id}
             name={p.name}
-            key={p.name}
             img={
               p.sprites.versions["generation-v"]["black-white"].animated
                 .front_default
             }
              
             />
-          ))}
+          ))} */}
+
+<PlantCard
+            // key={p.id}
+            // name={p.name}
+            // img={
+            //   p.sprites.versions["generation-v"]["black-white"].animated
+            //     .front_default
+            // }
+             
+            />
       </div>
     </div>
   );

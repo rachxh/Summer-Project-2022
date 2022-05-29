@@ -4,14 +4,11 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <h3 className="logo">PlantCare 🪴</h3>
+      <h3 className="logo"><Link to="/">PlantCare 🪴 </Link></h3>
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/plantList">Catalogue</Link>
+            <Link to="/">Catalogue</Link>
           </li>
           <li>
             <Link to="/myPlants">My plants</Link>

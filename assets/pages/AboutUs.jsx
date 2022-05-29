@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import Contact from "./Contact";
 
 const AboutUs = () => {
   return (
+    <>
+  <Header />
     <div>
         <h2>Team Slogan</h2>
     <div>
@@ -12,6 +17,9 @@ const AboutUs = () => {
         <img  src="https://cdn.pixabay.com/photo/2019/05/04/15/24/woman-4178302__340.jpg" alt="profile"/>  
     </div>
     </div>
+    <Contact />
+    <Footer />
+    </>
   ) 
 };
 

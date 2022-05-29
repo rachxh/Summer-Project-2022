@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plants;
 
+
 #[Route('/api', name: 'api_main')]
 class AppController extends AbstractController
 {
