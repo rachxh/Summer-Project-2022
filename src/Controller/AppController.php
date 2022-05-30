@@ -17,8 +17,9 @@ class AppController extends AbstractController
     {   
         $plants = $em->getRepository(Plants::class)->findAll();
         $data = [];
+        $counter = 0;
         foreach ($plants as $plant) {
-            $data = [
+            $data[$counter++] = [
                 'id' => $plant->getId(),
                 'name' => $plant->getName(),
                 'img' => $plant->getImg(),
@@ -26,28 +27,27 @@ class AppController extends AbstractController
                 'conditions' => $plant->getConditions(),
                 'difficulty' => $plant->getDifficulty()
             ];
-            dd($plants);
         }
         return $this->json($data);
     }
-    // #[Route('/plants/{id}', name: 'plant_search', methods: ['GET'])]
-    // public function show(int $id, ManagerRegistry $doctrine): Response
-    // {
-    //     $plant = $doctrine->getRepository(Project::class)->find($id);
+    #[Route('/plants/{id}', name: 'plant_search', methods: ['GET'])]
+    public function show(int $id, ManagerRegistry $doctrine): Response
+    {
+        $plant = $doctrine->getRepository(Project::class)->find($id);
 
-    //     if (!$plant) {
-    //         return $this->json('No project found for id' . $id, 404);
-    //     }
+        if (!$plant) {
+            return $this->json('No project found for id' . $id, 404);
+        }
 
-    //     $data = [
-    //         'id' => $plant->getId(),
-    //         'name' => $plant->getName(),
-    //         'img' => $plant->getImg(),
-    //         'water' => $plant->getWater(),
-    //         'conditions' => $plant->getConditions(),
-    //         'difficulty' => $plant->getDifficulty(),
-    //     ];
+        $data = [
+            'id' => $plant->getId(),
+            'name' => $plant->getName(),
+            'img' => $plant->getImg(),
+            'water' => $plant->getWater(),
+            'conditions' => $plant->getConditions(),
+            'difficulty' => $plant->getDifficulty(),
+        ];
 
-    //     return $this->json($data);
-    // }
+        return $this->json($data);
+    }
     }

@@ -3,15 +3,20 @@ import axios from "axios";
 import PlantCard from "./PlantCard";
 
 const PlantList = () => {
-const [plants,setPlants]=useState([])
+const [plants, setPlants] = useState([]);
 const [search, setSearch] = useState("");
 
+
+console.log("HiHO!")
 useEffect(() => {
     axios
-      .get("https://pokeapi.co/api/v2/pokemon?limit=60&offset=0")
-      .then((res) => setPlants(res.data));
+      .get("http://localhost:8007/api/plants")
+      .then((res) => {
+        setPlants(res.data)
+      }).catch((error) => {
+        console.error(error)
+      })
   }, []);
-  console.log('plants will be here', plants);
 
   const updateSearch = (e) => {
     setSearch(e.target.value);
@@ -30,31 +35,17 @@ useEffect(() => {
         />
       </form>
   
-      <div className="plant-list">
-        {/* {plants
-          .filter((plant) => plant.name.includes(search))
+      {<div className="plant-list">
+        {plants
+          .filter((plant) => plant.name.toLowerCase().includes(search.toLowerCase()))
           .map((plant) => (
             <PlantCard
             key={plant.id}
             name={plant.name}
-            img={
-              plant.sprites.versions["generation-v"]["black-white"].animated
-                .front_default
-            }
-             
+            img={plant.img}
             />
-          ))} */}
-
-<PlantCard
-            // key={plants.id}
-            // name={plants.name}
-            // img={
-            //   plants.sprites.versions["generation-v"]["black-white"].animated
-            //     .front_default
-            // }
-             
-            />
-      </div>
+          ))}
+      </div>}
     </div>
   );
 };

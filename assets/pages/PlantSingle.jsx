@@ -8,17 +8,19 @@ const PlantSingle = () => {
 
 
   useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${params.id}`).then((res) => {
+    axios.get(`http://localhost:8007/api/plants/${params.id}`).then((res) => {
       setItem(res.data);
       // console.log(item);
-    });
-    console.log(params);
+    }).catch((error) => {
+      console.error(error);
+    })
+    console.log('request plant', params);
   }, [params]);
 
   return (
     <div>
       <h1>{item.name}</h1>
-      <p>{item.description} </p>
+      <p>{item.condition} </p>
 
       <img src={item.image} alt="" />
 
