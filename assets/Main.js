@@ -16,8 +16,10 @@ function Main() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/catalogue" element={<Home />} />
+
           <Route path="plant/:id" element={<PlantSingle />} />
           {/* <Route path="myPlants" element={<MyPlants />} /> */}
+
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
