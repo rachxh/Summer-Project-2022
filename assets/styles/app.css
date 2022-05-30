@@ -135,3 +135,15 @@ color: white !important;
 .btn-banner{
   background-color: green !important;
 }
+
+.about-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.about-card{
+  display: flex;
+  flex-direction: row;
+  
+}

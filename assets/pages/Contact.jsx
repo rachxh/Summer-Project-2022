@@ -1,8 +1,11 @@
 import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Contact = () => {
   return (
   <div>
+    <Header />
     <div className="form-container">
       <h2 className="contact">Contact us</h2>
 <form>
@@ -32,6 +35,7 @@ const Contact = () => {
 
     </form>
     </div>
+    <Footer />
   </div>
   )
   ;
