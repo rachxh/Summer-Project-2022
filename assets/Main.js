@@ -17,7 +17,6 @@ function Main() {
           <Route exact path="/" element={<Home />} />
           <Route path="/catalogue" element={<Home />} />
           <Route path="plant" element={<PlantSingle />} />
-          <Route path="myPlants" element={<MyPlants />} />
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
