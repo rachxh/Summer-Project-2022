@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Road+Rage&family=Spartan:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap");
+
 
 * {
   margin: 0 ;
@@ -11,40 +13,20 @@ body {
   min-width: 100vh;
   background-color: #f9f7d9;
 }
-
-/* header,
-footer {
-  height: 100px;
-  width: 100%;
-  background-color: rgb(66, 64, 64);
-  color: white;
-} */
-/* h3 {
-  margin: 1rem;
-} */
-/* a {
-  color: white;
-  text-decoration: none;
+.logo{
+  font-family: "Oleo Script Swash Caps", cursive !important;
+  font-size: 1.5rem !important;
+  color: green !important;
 }
-li {
-  display: inline-block;
-  margin: 1rem;
-}
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
 main {
   min-height: 70vh;
 }
 h1 {
   text-align: center;
-  margin: 2rem;
-  font-family: "Road Rage", cursive;
+  margin: 2rem 0;
   font-size: 5rem;
-  color: greenyellow ;
-  text-shadow: 5px 5px 5px grey;
+  color: #9FC131;
+
 }
 .search-bar {
   background-color: white;
@@ -65,15 +47,7 @@ h1 {
   text-transform: capitalize;
   justify-content: center;
 }
-input {
-  width: 92%;
-  border: none;
-  outline: none;
-  padding: 0.8rem 0;
-  text-align: start;
-  background: transparent;
-  box-sizing: content-box;
-}
+
 .types {
   margin: 0 1rem;
   border: none;
@@ -105,8 +79,8 @@ input {
 }
 
 img {
-  height: 96px;
-  width: 96px;
+  height: 300px;
+  width: 300px;
   padding: 1.2rem;
  
 }
@@ -117,4 +91,59 @@ img {
 
 .card img:hover {
   filter: saturate(1.5);
+}
+
+
+.slogan-container > h1 {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.form-container {
+  width: 45%;
+  margin: 0 auto;
+  padding-top: 4rem;
+}
+.contact {
+  color: white;
+  text-align: center;
+  background-color: #9FC131;
+}
+.btn-contact{
+  width: 100%;
+  margin: 1.5rem 0;
+  background-color: #9FC131 !important;
+  border: none !important;
+}
+
+.btn-color{
+  background-color: #9FC131 !important;
+  border: none !important;
+}
+.banner{
+  background-color: #9FC131;
+}
+.banner-title{
+  color: green;
+}
+.nav-color{
+  background-color: #9FC131;
+}
+.link-color{
+color: white !important;
+}
+.btn-banner{
+  background-color: green !important;
+}
+
+.about-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.about-card{
+  display: flex;
+  flex-direction: row;
+  
 }
