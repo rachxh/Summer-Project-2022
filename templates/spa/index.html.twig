@@ -28,6 +28,9 @@
     </tr>
     {% endfor %}
 </table> #}
+{# {{app.user.email}} #}
+{{app.user? 'logout' : 'login'}}
+
 </div>
 
 {% endblock %}
