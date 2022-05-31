@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Layout from "../components/Layout";
 
 const PlantSingle = () => {
   const [item, setItem] = useState({});
@@ -17,16 +18,17 @@ const PlantSingle = () => {
       .catch((error) => {
         console.error(error);
       });
-    console.log("request plant", id);
-  }, [id]);
+  }, []);
 
   return (
-    <div>
-      <h1>{item.name}</h1>
-      <p>{item.conditions} </p>
+    <Layout>
+      <div>
+        <h1>{item.name}</h1>
+        <p>{item.conditions} </p>
 
-      <img src={item.img} alt="" />
-    </div>
+        <img src={item.img} alt="" />
+      </div>
+    </Layout>
   );
 };
 
