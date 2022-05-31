@@ -22,6 +22,7 @@ class AppController extends AbstractController
             $data[$counter++] = [
                 'id' => $plant->getId(),
                 'name' => $plant->getName(),
+                'name_2' => $plant->getName2(),
                 'img' => $plant->getImg(),
                 'water' => $plant->getWater(),
                 'conditions' => $plant->getConditions(),

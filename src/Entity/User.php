@@ -26,6 +26,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
+    #[ORM\OneToMany(targetEntity:'Plants', mappedBy:'User')]
+    private $saved_plants;
+
     public function getId(): ?int
     {
         return $this->id;
