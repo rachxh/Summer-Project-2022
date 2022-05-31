@@ -34,7 +34,7 @@ class AppController extends AbstractController
     #[Route('/plants/{id}', name: 'plant_search', methods: ['GET'])]
     public function show(int $id, ManagerRegistry $doctrine): Response
     {
-        $plant = $doctrine->getRepository(Project::class)->find($id);
+        $plant = $doctrine->getRepository(Plants::class)->find($id);
 
         if (!$plant) {
             return $this->json('No project found for id' . $id, 404);
