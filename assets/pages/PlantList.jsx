@@ -42,7 +42,12 @@ const PlantList = () => {
               plant.name.toLowerCase().includes(search.toLowerCase())
             )
             .map((plant) => (
-              <PlantCard key={plant.id} name={plant.name} img={plant.img} />
+              <PlantCard
+                key={plant.id}
+                id={plant.id}
+                name={plant.name}
+                img={plant.img}
+              />
             ))}
         </div>
       }
