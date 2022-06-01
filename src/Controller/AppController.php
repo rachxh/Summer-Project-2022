@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plants;
+use App\Entity\User;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -55,12 +56,33 @@ class AppController extends AbstractController
         return $this->json($data);
     }
 
-    #[Route('/plants/{id}/add', name: 'add_favourite', methods: ['GET','POST'])] 
+    #[Route('/plants/{id}/add', name: 'add_favourite')] 
         
-        public function new(ManagerRegistry $doctrine, Request $request, int $id): Response
+        public function add(ManagerRegistry $doctrine, int $id): Response
     {
+        $plant = $doctrine->getRepository(Plants::class)->find($id);
 
+        $data = [
+            'id' => $plant->getId(),
+            'name' => $plant->getName(),
+            'name_2' => $plant->getName2(),
+            'img' => $plant->getImg(),
+            'water' => $plant->getWater(),
+            'conditions' => $plant->getConditions(),
+            'difficulty' => $plant->getDifficulty(),
+        ];
+        // $user = new User();
+        // $user->setEmail('bye@goodnight.com');
+        // $user->setPassword('1234567777');
 
+        // $plant->setUser($user);
+
+        // $em = $doctrine->getManager();
+        // $em->persist($user);
+        // $em->persist($plant);
+        // $em->flush();
+
+        return $this->json($data);
 
     }
 }   
