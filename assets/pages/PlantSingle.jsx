@@ -32,6 +32,7 @@ const PlantSingle = () => {
       <div className="sp-container">
     
         <h1>{item.name}</h1>
+
        <div className="sp-card">
        <img src={item.img} alt="" />
        <div className="sp-text">
@@ -46,6 +47,7 @@ const PlantSingle = () => {
         <p className="plant-detail">{item.difficulty} </p>
         </div>
         </div>
+
       </div>
 
       <Footer />

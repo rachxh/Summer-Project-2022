@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plants;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\Security;
 
 #[Route('/api', name: 'api_main')]
 class AppController extends AbstractController
@@ -31,14 +32,16 @@ class AppController extends AbstractController
         }
         return $this->json($data);
     }
-    #[Route('/plants/{id}', name: 'plant_search', methods: ['GET'])]
+    #[Route('/plants/{id}', name: 'plant_show', methods: ['GET'])]
     public function show(int $id, ManagerRegistry $doctrine): Response
     {
         $plant = $doctrine->getRepository(Plants::class)->find($id);
 
-    //     if (!$plant) {
-    //         return $this->json('No project found for id' . $id, 404);
-    //     }
+
+        if (!$plant) {
+            return $this->json('No plant found for id' . $id, 404);
+        }
+
 
         $data = [
             'id' => $plant->getId(),
@@ -53,4 +56,35 @@ class AppController extends AbstractController
         return $this->json($data);
     // }
     }
-}
+
+
+    #[Route('/plants/{id}/add', name: 'add_favourite')] 
+        
+        public function add(ManagerRegistry $doctrine, int $id): Response
+    {
+        $plant = $doctrine->getRepository(Plants::class)->find($id);
+        $user = $this->getUser();
+    
+
+        $data = [
+            'id' => $plant->getId(),
+            'name' => $plant->getName(),
+            'name_2' => $plant->getName2(),
+            'img' => $plant->getImg(),
+            'water' => $plant->getWater(),
+            'conditions' => $plant->getConditions(),
+            'difficulty' => $plant->getDifficulty(),
+        ];
+
+        $plant->setUser($user);
+
+        $em = $doctrine->getManager();
+        $em->persist($user);
+        $em->persist($plant);
+        $em->flush();
+
+        return $this->json($data);
+
+    }
+}   
+
