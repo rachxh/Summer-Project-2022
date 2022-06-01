@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Favourite;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,7 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plants;
 use App\Entity\User;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\HttpFoundation\Request;
 
 #[Route('/api', name: 'api_main')]
 class AppController extends AbstractController
