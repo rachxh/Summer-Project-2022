@@ -37,9 +37,11 @@ class AppController extends AbstractController
     {
         $plant = $doctrine->getRepository(Plants::class)->find($id);
 
+
         if (!$plant) {
             return $this->json('No plant found for id' . $id, 404);
         }
+
 
         $data = [
             'id' => $plant->getId(),
@@ -53,6 +55,7 @@ class AppController extends AbstractController
 
         return $this->json($data);
     }
+
 
     #[Route('/plants/{id}/add', name: 'add_favourite')] 
         
@@ -71,16 +74,4 @@ class AppController extends AbstractController
         return new Response('Added: '. $plant->getName(). 'by user: '. $user->getUserIdentifier());
 
     }
-
-    // #[Route('/myplants', name: 'myplants')] 
-
-    // public function find(): Response
-    // {
-    //     $user =$this->getUser();
-
-    //     $plant = $user->getPlants();
-
-    //     return $this->plants;
-
-    // }
 }   

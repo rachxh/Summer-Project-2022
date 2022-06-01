@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Layout from "../components/Layout";
+// import Layout from "../components/Layout";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const PlantSingle = () => {
   const [item, setItem] = useState({});
@@ -20,14 +22,36 @@ const PlantSingle = () => {
       });
   }, []);
 
+ 
+  let emptyName= "";
+  // let secondName = (!emptyName) ? {item.name_2} : "None";
+
   return (
-    <Layout>
-      <div>
+   <>
+      <Header />
+      <div className="sp-container">
+    
         <h1>{item.name}</h1>
-        <p>{item.conditions} </p>
-        <img src={item.img} alt="" />
+
+       <div className="sp-card">
+       <img src={item.img} alt="" />
+       <div className="sp-text">
+       {/* <p className="sp-subtitle"> 🗂 Second Name:  </p>
+
+        <p className="plant-detail"> </p>  */}
+        <p className="sp-subtitle"> ☀️ Conditions:  </p>
+        <p className="plant-detail">  {item.conditions}</p> 
+        <p className="sp-subtitle"> 💦 Water:  </p>
+        <p className="plant-detail">{item.water}</p>
+        <p className="sp-subtitle"> 🌱 Difficulty: </p>
+        <p className="plant-detail">{item.difficulty} </p>
+        </div>
+        </div>
+
       </div>
-    </Layout>
+
+      <Footer />
+  </>
   );
 };
 
