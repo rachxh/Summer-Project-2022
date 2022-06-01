@@ -1,32 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Layout from "../components/Layout";
 
 const PlantSingle = () => {
   const [item, setItem] = useState({});
-  let params = useParams();
-
+  const [id, setId] = useState(useParams().id);
 
   useEffect(() => {
-    axios.get(`http://localhost:8007/api/plants/${params.id}`).then((res) => {
-      setItem(res.data);
-      // console.log(item);
-    }).catch((error) => {
-      console.error(error);
-    })
-    console.log('request plant', params);
-  }, [params]);
+    axios
+      .get(`http://localhost:8007/api/plants/${id}`)
+      .then((res) => {
+        setItem(res.data);
+        setId(res.data);
+        console.log(item);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
-    <div>
-      <h1>{item.name}</h1>
-      <p>{item.condition} </p>
+    <Layout>
+      <div>
+        <h1>{item.name}</h1>
+        <p>{item.conditions} </p>
 
-      <img src={item.image} alt="" />
-
-    </div>
+        <img src={item.img} alt="" />
+      </div>
+    </Layout>
   );
 };
 
 export default PlantSingle;
-
