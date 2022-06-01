@@ -22,6 +22,7 @@ class AppController extends AbstractController
             $data[$counter++] = [
                 'id' => $plant->getId(),
                 'name' => $plant->getName(),
+                'name_2' => $plant->getName2(),
                 'img' => $plant->getImg(),
                 'water' => $plant->getWater(),
                 'conditions' => $plant->getConditions(),
@@ -30,24 +31,26 @@ class AppController extends AbstractController
         }
         return $this->json($data);
     }
-    // #[Route('/plants/{id}', name: 'plant_search', methods: ['GET'])]
-    // public function show(int $id, ManagerRegistry $doctrine): Response
-    // {
-    //     $plant = $doctrine->getRepository(Project::class)->find($id);
+    #[Route('/plants/{id}', name: 'plant_search', methods: ['GET'])]
+    public function show(int $id, ManagerRegistry $doctrine): Response
+    {
+        $plant = $doctrine->getRepository(Plants::class)->find($id);
 
     //     if (!$plant) {
     //         return $this->json('No project found for id' . $id, 404);
     //     }
 
-    //     $data = [
-    //         'id' => $plant->getId(),
-    //         'name' => $plant->getName(),
-    //         'img' => $plant->getImg(),
-    //         'water' => $plant->getWater(),
-    //         'conditions' => $plant->getConditions(),
-    //         'difficulty' => $plant->getDifficulty(),
-    //     ];
+        $data = [
+            'id' => $plant->getId(),
+            'name' => $plant->getName(),
+            'name_2' => $plant->getName2(),
+            'img' => $plant->getImg(),
+            'water' => $plant->getWater(),
+            'conditions' => $plant->getConditions(),
+            'difficulty' => $plant->getDifficulty(),
+        ];
 
-    //     return $this->json($data);
+        return $this->json($data);
     // }
     }
+}

@@ -3,19 +3,19 @@ import axios from "axios";
 import PlantCard from "./PlantCard";
 
 const PlantList = () => {
-const [plants, setPlants] = useState([]);
-const [search, setSearch] = useState("");
+  const [plants, setPlants] = useState([]);
+  const [search, setSearch] = useState("");
 
-
-console.log("HiHO!")
-useEffect(() => {
+  console.log("HiHO!");
+  useEffect(() => {
     axios
       .get("http://localhost:8007/api/plants")
       .then((res) => {
-        setPlants(res.data)
-      }).catch((error) => {
-        console.error(error)
+        setPlants(res.data);
       })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   const updateSearch = (e) => {
@@ -34,18 +34,23 @@ useEffect(() => {
           onChange={updateSearch}
         />
       </form>
-  
-      {<div className="plant-list">
-        {plants
-          .filter((plant) => plant.name.toLowerCase().includes(search.toLowerCase()))
-          .map((plant) => (
-            <PlantCard
-            key={plant.id}
-            name={plant.name}
-            img={plant.img}
-            />
-          ))}
-      </div>}
+
+      {
+        <div className="plant-list">
+          {plants
+            .filter((plant) =>
+              plant.name.toLowerCase().includes(search.toLowerCase())
+            )
+            .map((plant) => (
+              <PlantCard
+                key={plant.id}
+                id={plant.id}
+                name={plant.name}
+                img={plant.img}
+              />
+            ))}
+        </div>
+      }
     </div>
   );
 };
