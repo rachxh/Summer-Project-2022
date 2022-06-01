@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -26,8 +28,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[ORM\OneToMany(targetEntity:'Plants', mappedBy:'User')]
-    private $saved_plants;
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Plants::class)]
+    private $plants;
+
+    public function __construct()
+    {
+        $this->plants = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -99,4 +106,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    /**
+     * @return Collection<int, Plants>
+     */
+    public function getPlants(): Collection
+    {
+        return $this->plants;
+    }
+
+    public function addPlant(Plants $plant): self
+    {
+        if (!$this->plants->contains($plant)) {
+            $this->plants[] = $plant;
+            $plant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlant(Plants $plant): self
+    {
+        if ($this->plants->removeElement($plant)) {
+            // set the owning side to null (unless already changed)
+            if ($plant->getUser() === $this) {
+                $plant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
