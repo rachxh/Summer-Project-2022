@@ -42,12 +42,6 @@ h1 {
   padding: 0.5rem 0;
 }
 
-.material-icons {
-  color: #777;
-  padding: 0.5rem;
-  text-transform: capitalize;
-  justify-content: center;
-}
 
 .types {
   margin: 0 1rem;
@@ -85,7 +79,6 @@ h1 {
   width: 220px;
   height: 250px;
   border-radius: 5px 5px 0 0;
-  filter: sepia(15%);
   object-fit: cover;
 }
 .card:hover {
@@ -104,7 +97,6 @@ h1 {
   background-color: #9FC131;
   color: aliceblue;
   justify-content: center;
-  border-radius: 0 0 5px 5px;
   padding: 0.8rem 0;
   text-transform: capitalize;
   font-size: 1rem;
@@ -126,7 +118,7 @@ h1 {
 }
 .btn-contact{
   width: 100%;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 4rem 0 ;
   background-color: #9FC131 !important;
   border: none !important;
 }
@@ -148,7 +140,11 @@ h1 {
 color: white !important;
 }
 .btn-banner{
-  background-color: green !important;
+  background-color: green ;
+  border-radius: 25px ;
+  color: white;
+  padding:  0.5rem 1.5rem;
+  border: none;
 }
 
 .about-container{
@@ -157,8 +153,63 @@ color: white !important;
   justify-content: space-between;
 
 }
-.about-card{
+.about-card, .sp-card{
   display: flex;
   flex-direction: row;
+  margin: 2rem 5rem;
   
+}
+
+.about-text, .sp-text{
+  padding: 0 2rem;
+}
+.about-img {
+  width: 300px;
+  height: 300px;
+}
+.btn-aboutus{
+  padding: 0.4rem 1.2rem;
+  border-radius: 25px;
+  border: none;
+  background-color: #9FC131;
+  color: white;
+}
+
+.sp-container{
+  min-height: 85vh;
+}
+.sp-subtitle{
+  color: green;
+  font-weight: bolder;
+
+}
+.plant-detail{
+  border-left: 4px solid #9FC131;
+  padding: 0 1rem;
+}
+.filters{
+  margin:0 8rem;
+
+}
+
+.care-level{
+  padding: 0.2rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 25px;
+  border: 3px solid #9FC131;
+}
+.pet-btn{
+  padding: 0.2rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 25px;
+  border: none;
+  background-color: #9FC131;
+}
+.order-btn{
+  padding: 0.2rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 25px;
+  border: none;
+  background-color: #9FC131;
+  color: green;
 }

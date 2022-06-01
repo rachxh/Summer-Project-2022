@@ -22,7 +22,6 @@ function Main() {
 
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="login" element={<Login />} />
         </Routes>
       </Layout>
     </Router>
