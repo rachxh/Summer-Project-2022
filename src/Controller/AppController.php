@@ -60,17 +60,6 @@ class AppController extends AbstractController
     {
         $plant = $doctrine->getRepository(Plants::class)->find($id);
         $user = $this->getUser();
-    
-
-        $data = [
-            'id' => $plant->getId(),
-            'name' => $plant->getName(),
-            'name_2' => $plant->getName2(),
-            'img' => $plant->getImg(),
-            'water' => $plant->getWater(),
-            'conditions' => $plant->getConditions(),
-            'difficulty' => $plant->getDifficulty(),
-        ];
 
         $plant->setUser($user);
 
@@ -79,7 +68,19 @@ class AppController extends AbstractController
         $em->persist($plant);
         $em->flush();
 
-        return $this->json($data);
+        return new Response('Added: '. $plant->getName(). 'by user: '. $user->getUserIdentifier());
 
     }
+
+    // #[Route('/myplants', name: 'myplants')] 
+
+    // public function find(): Response
+    // {
+    //     $user =$this->getUser();
+
+    //     $plant = $user->getPlants();
+
+    //     return $this->plants;
+
+    // }
 }   
