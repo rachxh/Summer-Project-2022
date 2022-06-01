@@ -7,8 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plants;
-use App\Entity\User;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\Security;
 
 #[Route('/api', name: 'api_main')]
 class AppController extends AbstractController
@@ -59,6 +59,8 @@ class AppController extends AbstractController
         public function add(ManagerRegistry $doctrine, int $id): Response
     {
         $plant = $doctrine->getRepository(Plants::class)->find($id);
+        $user = $this->getUser();
+    
 
         $data = [
             'id' => $plant->getId(),
@@ -69,16 +71,13 @@ class AppController extends AbstractController
             'conditions' => $plant->getConditions(),
             'difficulty' => $plant->getDifficulty(),
         ];
-        // $user = new User();
-        // $user->setEmail('bye@goodnight.com');
-        // $user->setPassword('1234567777');
 
-        // $plant->setUser($user);
+        $plant->setUser($user);
 
-        // $em = $doctrine->getManager();
-        // $em->persist($user);
-        // $em->persist($plant);
-        // $em->flush();
+        $em = $doctrine->getManager();
+        $em->persist($user);
+        $em->persist($plant);
+        $em->flush();
 
         return $this->json($data);
 
