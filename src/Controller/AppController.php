@@ -54,7 +54,6 @@ class AppController extends AbstractController
         ];
 
         return $this->json($data);
-    // }
     }
 
 
