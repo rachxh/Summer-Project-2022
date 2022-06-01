@@ -59,20 +59,8 @@ class AppController extends AbstractController
         
         public function new(ManagerRegistry $doctrine, Request $request, int $id): Response
     {
-        $entityManager = $doctrine->getManager();
-        $item = $entityManager->getRepository(Plants::class)->find($id);
-        if (!$item) {
-            return $this->json('No plant found for id ' .$id, 404);
-        }
-        $favourite = new Favourite();
-        $favourite->setName($request->request->get('name'));
-        $favourite->setImg($request->request->get('img'));
-     
-       
-        $entityManager->persist($favourite);
-        $entityManager->flush();
 
-        return $this->json('Saved a new plant with id ' . $favourite->getId());
+
 
     }
 }   
