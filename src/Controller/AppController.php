@@ -7,8 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plants;
+use App\Entity\User;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\HttpFoundation\Request;
 
 #[Route('/api', name: 'api_main')]
 class AppController extends AbstractController
@@ -58,38 +58,44 @@ class AppController extends AbstractController
     }
 
 
-    #[Route('/plants/{id}/add', name: 'add_favourite', methods:['GET'])] 
+    #[Route('/plants/{id}/add', name: 'add_favourite')] 
         
-        public function add(Request $request,ManagerRegistry $doctrine, int $id): Response
+        public function add(ManagerRegistry $doctrine, int $id): Response
     {
+        $em = $doctrine->getManager();
         $plant = $doctrine->getRepository(Plants::class)->find($id);
         $user = $this->getUser();
-
         $plant->setUser($user);
 
-        $em = $doctrine->getManager();
+
         $em->persist($user);
         $em->persist($plant);
         $em->flush();
 
-        // $data = [
-        //     'id' => $plant->getId(),
-        //     'name' => $plant->getName(),
-        //     'name_2' => $plant->getName2(),
-        //     'img' => $plant->getImg(),
-        //     'water' => $plant->getWater(),
-        //     'conditions' => $plant->getConditions(),
-        //     'difficulty' => $plant->getDifficulty()
-        // ];
+        $data = [
+            'id' => $plant->getId(),
+            'name' => $plant->getName(),
+            'name_2' => $plant->getName2(),
+            'img' => $plant->getImg(),
+            'water' => $plant->getWater(),
+            'conditions' => $plant->getConditions(),
+            'difficulty' => $plant->getDifficulty()
+        ];
         
-        return $this->json('Added a plant with id ' . $id);
+        return $this->json($data);
 
     }
 
     // #[Route('/myplants', name: 'add_favourite')] 
         
-    // public function show_favourite(ManagerRegistry $doctrine, int $id): Response
+    // public function showFavourites(ManagerRegistry $doctrine): Response
     // {
+    //     $repository = $doctrine->getRepository(Plants::class);
+    //     $plants = $repository->findBy(
+    //         ['id' => '10']
+    //     );
+
+    //     return $this->json($plants);
 
     // }
 }   
