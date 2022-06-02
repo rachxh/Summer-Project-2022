@@ -35,11 +35,11 @@ const Header = () => {
                 Contact
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/login" className="nav-link link-color">
                 Login
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

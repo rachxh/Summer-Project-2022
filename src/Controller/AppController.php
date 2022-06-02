@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Plants;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Component\HttpFoundation\Request;
 
 #[Route('/api', name: 'api_main')]
 class AppController extends AbstractController
@@ -58,23 +58,12 @@ class AppController extends AbstractController
     }
 
 
-    #[Route('/plants/{id}/add', name: 'add_favourite')] 
+    #[Route('/plants/{id}/add', name: 'add_favourite', methods:['GET'])] 
         
-        public function add(ManagerRegistry $doctrine, int $id): Response
+        public function add(Request $request,ManagerRegistry $doctrine, int $id): Response
     {
         $plant = $doctrine->getRepository(Plants::class)->find($id);
         $user = $this->getUser();
-    
-
-        $data = [
-            'id' => $plant->getId(),
-            'name' => $plant->getName(),
-            'name_2' => $plant->getName2(),
-            'img' => $plant->getImg(),
-            'water' => $plant->getWater(),
-            'conditions' => $plant->getConditions(),
-            'difficulty' => $plant->getDifficulty(),
-        ];
 
         $plant->setUser($user);
 
@@ -83,8 +72,25 @@ class AppController extends AbstractController
         $em->persist($plant);
         $em->flush();
 
-        return $this->json($data);
+        // $data = [
+        //     'id' => $plant->getId(),
+        //     'name' => $plant->getName(),
+        //     'name_2' => $plant->getName2(),
+        //     'img' => $plant->getImg(),
+        //     'water' => $plant->getWater(),
+        //     'conditions' => $plant->getConditions(),
+        //     'difficulty' => $plant->getDifficulty()
+        // ];
+        
+        return $this->json('Added a plant with id ' . $id);
 
     }
+
+    // #[Route('/myplants', name: 'add_favourite')] 
+        
+    // public function show_favourite(ManagerRegistry $doctrine, int $id): Response
+    // {
+
+    // }
 }   
 
