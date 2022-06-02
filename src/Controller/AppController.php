@@ -27,7 +27,8 @@ class AppController extends AbstractController
                 'img' => $plant->getImg(),
                 'water' => $plant->getWater(),
                 'conditions' => $plant->getConditions(),
-                'difficulty' => $plant->getDifficulty()
+                'difficulty' => $plant->getDifficulty(),
+                'pets' => $plant->isPets(),
             ];
         }
         return $this->json($data);
