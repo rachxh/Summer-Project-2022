@@ -45,9 +45,12 @@ const PlantSingle = () => {
         <p className="plant-detail">{item.water}</p>
         <p className="sp-subtitle"> 🌱 Difficulty: </p>
         <p className="plant-detail">{item.difficulty} </p>
+        <button className="order-btn">Save ❤️</button>
+  
         </div>
+       
         </div>
-
+       
       </div>
 
       <Footer />
