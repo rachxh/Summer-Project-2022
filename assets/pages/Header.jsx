@@ -35,11 +35,14 @@ const Header = () => {
                 Contact
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link to="/login" className="nav-link link-color">
-                Login
-              </Link>
-            </li> */}
+            <li className="nav-item">
+              <a
+                href="http://localhost:8007/login"
+                className="nav-link link-color"
+              >
+                Logout
+              </a>
+            </li>
           </ul>
         </div>
       </div>
