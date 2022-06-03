@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 
 const PlantCard = (props) => {
   return (
-    <div className="card">
+
+
+    <div className="card" >
+    <Link to={`plant/${props.id}`} className="card-link" >
       <img className="plant-img" src={props.img} alt={props.name} />
-      <h4 className="card-name">{props.name}</h4>
-      <Link to={`plant/${props.id}`} style={{ color: "green" }}>
-        See more
-      </Link>
+      <p className="card-name">{props.name}</p>
+    
+   </Link>
     </div>
   );
 };
