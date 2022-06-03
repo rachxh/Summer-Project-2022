@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Road+Rage&family=Spartan:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap");
 
-
 * {
-  margin: 0 ;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -13,7 +12,7 @@ body {
   min-width: 100vh;
   background-color: #f9f7d9;
 }
-.logo{
+.logo {
   font-family: "Oleo Script Swash Caps", cursive !important;
   font-size: 1.5rem !important;
   color: green !important;
@@ -25,8 +24,7 @@ h1 {
   text-align: center;
   margin: 2rem 0;
   font-size: 5rem;
-  color: #9FC131;
-
+  color: #9fc131;
 }
 .search-bar {
   background-color: white;
@@ -41,7 +39,6 @@ h1 {
   text-indent: 1rem;
   padding: 0.5rem 0;
 }
-
 
 .types {
   margin: 0 1rem;
@@ -67,13 +64,17 @@ h1 {
   background-color: aliceblue;
   border: none;
   border-radius: 5px;
-  box-shadow: 10px 10px 15px #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
 
 .plant-img {
   width: 220px;
@@ -94,13 +95,20 @@ h1 {
   height: 20%;
   width: 100%;
   text-align: center;
-  background-color: #9FC131;
+  background-color: #9fc131;
   color: aliceblue;
   justify-content: center;
   padding: 0.8rem 0;
   text-transform: capitalize;
   font-size: 1rem;
+  margin: 0;
+  border-radius: 0 0 5px 5px;
 }
+
+.card-link{
+  text-decoration: none;
+}
+
 .slogan-container > h1 {
   margin: 0 auto;
   width: 800px;
@@ -114,102 +122,106 @@ h1 {
 .contact {
   color: white;
   text-align: center;
-  background-color: #9FC131;
+  background-color: #9fc131;
 }
-.btn-contact{
+.btn-contact {
   width: 100%;
-  margin: 1.5rem 0 4rem 0 ;
-  background-color: #9FC131 !important;
+  margin: 1.5rem 0 4rem 0;
+  background-color: #9fc131 !important;
   border: none !important;
 }
 
-.btn-color{
-  background-color: #9FC131 !important;
+.btn-color {
+  background-color: #9fc131 !important;
   border: none !important;
 }
-.banner{
-  background-color: #9FC131;
+.banner {
+  background-color: #9fc131;
 }
-.banner-title{
+.banner-title {
   color: green;
 }
-.nav-color{
-  background-color: #9FC131;
+.nav-color {
+  background-color: #9fc131;
 }
-.link-color{
-color: white !important;
+.link-color {
+  color: white !important;
 }
-.btn-banner{
-  background-color: green ;
-  border-radius: 25px ;
+.btn-banner {
+  background-color: green;
+  border-radius: 25px;
   color: white;
-  padding:  0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border: none;
 }
 
-.about-container{
+.about-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
-.about-card, .sp-card{
+.about-card,
+.sp-card {
   display: flex;
   flex-direction: row;
   margin: 2rem 5rem;
-  
 }
 
-.about-text, .sp-text{
+.about-text,
+.sp-text {
   padding: 0 2rem;
 }
 .about-img {
   width: 300px;
   height: 300px;
 }
-.btn-aboutus{
+.btn-aboutus {
   padding: 0.4rem 1.2rem;
   border-radius: 25px;
   border: none;
-  background-color: #9FC131;
+  background-color: #9fc131;
   color: white;
 }
 
-.sp-container{
+.sp-container {
   min-height: 85vh;
 }
-.sp-subtitle{
+.sp-subtitle {
   color: green;
   font-weight: bolder;
-
 }
-.plant-detail{
-  border-left: 4px solid #9FC131;
+.plant-detail {
+  border-left: 4px solid #9fc131;
   padding: 0 1rem;
 }
-.filters{
-  margin:0 8rem;
-
+.filters {
+  margin: 0 0 0 9rem;
 }
 
-.care-level{
+.care-level {
   padding: 0.2rem 1rem;
   margin-right: 0.5rem;
   border-radius: 25px;
-  border: 3px solid #9FC131;
+  border: 3px solid #9fc131;
 }
-.pet-btn{
+.pet-btn {
   padding: 0.2rem 1.5rem;
   margin: 0 0.5rem;
   border-radius: 25px;
   border: none;
-  background-color: #9FC131;
+  background-color: #9fc131;
 }
-.order-btn{
+.order-btn {
   padding: 0.2rem 1.5rem;
   margin: 0 0.5rem;
   border-radius: 25px;
   border: none;
-  background-color: #9FC131;
+  background-color: #9fc131;
   color: green;
+}
+
+.register-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
