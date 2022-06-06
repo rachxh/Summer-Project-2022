@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Favourite;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -56,48 +57,63 @@ class AppController extends AbstractController
 
         return $this->json($data);
     }
+    #[Route('/favourite', name: 'app_favourite', methods:['POST'])]
 
-    // #[Route('/plants/{id}/add', name: 'add_favourite', methods:['GET'])] 
-        
-    //     public function add(ManagerRegistry $doctrine, int $id): Response
-    // {
-    //     $em = $doctrine->getManager();
-    //     $plant = $em->getRepository(Plants::class)->find($id);
-    //        if (!$plant) {
-    //         return $this->json('No project found for id ' .$id, 404);
-    //     }
-    //     $content = json_decode($request->getContent());
-    //     $plant->setFavourite($content->favourite);
-    //     $em->flush();
+    public function add(Request $request, ManagerRegistry $doctrine): Response
+        {
+            $entityManager = $doctrine->getManager();
+    
+            $favourite = new Favourite();
+            $favourite->setName($request->request->get('name'));
+            $favourite->setImg($request->request->get('img'));
+            $favourite->setWater($request->request->get('water'));
+            $favourite->setConditions($request->request->get('conditions'));
+            $favourite->setDifficulty($request->request->get('difficulty'));
+            $favourite->setPets($request->request->get('pets'));
 
-    //     return $this->json('Plant added to favourites');
-    // }
-
-
-        // $data = [
-        //     'id' => $plant->getId(),
-        //     'name' => $plant->getName(),
-        //     'name_2' => $plant->getName2(),
-        //     'img' => $plant->getImg(),
-        //     'water' => $plant->getWater(),
-        //     'conditions' => $plant->getConditions(),
-        //     'difficulty' => $plant->getDifficulty()
-        // ];
-        
-        // return $this->json($this->getUser());
-
+    
+            $entityManager->persist($favourite);
+            $entityManager->flush();
+    
+        return $this->json('Created new favourite successfully with id ' . $favourite->getId());
+        }
+    
+    #[Route('/favourite', name: 'app_myplants', methods:['GET'])]
+    public function all(Request $request, ManagerRegistry $doctrine): Response
+        {  
+        $em = $doctrine->getManager();    
+        $myplants = $em->getRepository(Favourite::class)->findAll();
+        $data = [];
+        $counter = 0;
+        foreach ($myplants as $myplant) {
+            $data[$counter++] = [
+                'id' => $myplant->getId(),
+                'name' => $myplant->getName(),
+                'img' => $myplant->getImg(),
+                'water' => $myplant->getWater(),
+                'conditions' => $myplant->getConditions(),
+                'difficulty' => $myplant->getDifficulty(),
+                'pets' => $myplant->isPets(),
+            ];
+        }
+        return $this->json($data);
     }
 
-    // #[Route('/myplants', name: 'add_favourite')] 
-        
-    // public function showFavourites(ManagerRegistry $doctrine): Response
-    // {
-    //     $repository = $doctrine->getRepository(Plants::class);
-    //     $plants = $repository->findBy(
-    //         ['id' => '10']
-    //     );
+    #[Route('/favourite/{id}', name: 'favourite_delete', methods: ['DELETE'])]
+    public function delete(int $id, ManagerRegistry $doctrine): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $favourite = $entityManager->getRepository(Favourite::class)->find($id);
 
-    //     return $this->json($plants);
+        if (!$favourite) {
+            return $this->json('No plant found for id' . $id, 404);
+        }
 
-    // }
+        $entityManager->remove($favourite);
+        $entityManager->flush();
+
+        return $this->json('Deleted a plant successfully with id ' . $id);
+    }
+}
+    
 
