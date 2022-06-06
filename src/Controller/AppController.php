@@ -56,8 +56,16 @@ class AppController extends AbstractController
 
         return $this->json($data);
     }
+<<<<<<< HEAD
     #[Route('/plants/{id}', name: 'plant_add', methods: ['PUT', 'PATCH'])]
     public function add(Request $request, int $id, ManagerRegistry $doctrine): Response
+=======
+
+
+    #[Route('/plants/{id}/add', name: 'add_favourite', methods:['GET'])] 
+        
+        public function add(ManagerRegistry $doctrine, int $id): Response
+>>>>>>> 46e6351727bd77722747455468ea2a5838d8618b
     {
         $em = $doctrine->getManager();
         $plant = $em->getRepository(Plants::class)->find($id);
@@ -72,6 +80,7 @@ class AppController extends AbstractController
     }
 
 
+<<<<<<< HEAD
     // #[Route('/plants/add', name: 'add_favourite', methods: ['GET'])]
         
     //     public function add(): Response
@@ -101,6 +110,21 @@ class AppController extends AbstractController
         // return $this->json('saved the plant successfully'. $plant->getId(). 'by ' .$user->getUserIdentifier());
     //     return $this->json(['user' => $user->getUserIdentifier()]);
     // }
+=======
+        // $data = [
+        //     'id' => $plant->getId(),
+        //     'name' => $plant->getName(),
+        //     'name_2' => $plant->getName2(),
+        //     'img' => $plant->getImg(),
+        //     'water' => $plant->getWater(),
+        //     'conditions' => $plant->getConditions(),
+        //     'difficulty' => $plant->getDifficulty()
+        // ];
+        
+        return $this->json($this->getUser());
+
+    }
+>>>>>>> 46e6351727bd77722747455468ea2a5838d8618b
 
     // #[Route('/myplants', name: 'add_favourite')] 
         
