@@ -8,9 +8,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SpaController extends AbstractController
 {
-    #[Route('/{reactRoute}', name: 'app_home', requirements: ['reactRoute'=>"^(?!api).+"], defaults:["reactRoute"=>null])]
+    #[Route('/', name: 'app_home', requirements: ['reactRoute'=>"^().+"], defaults:["reactRoute"=>"app_login"])]
     public function index(): Response
     {
-        return $this->render('spa/index.html.twig');
+         if ($this->getUser()) {
+            return $this->render('spa/index.html.twig');
+        }
+        
+        return $this->redirect($this->generateUrl('app_login'));
     }
 }
