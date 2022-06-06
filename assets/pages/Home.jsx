@@ -17,14 +17,8 @@ const Home = () => {
                 quaerat inventore sit ipsum illo velit ex, quos quisquam nam
                 veniam?
               </p>
-
-              <button
-                className="btn-banner "
-                data-bs-toggle="modal"
-                data-bs-target="#login"
-              >
-                Login
-              </button>
+              {/* 
+   <a href className=" btn-banner " data-bs-toggle="modal" data-bs-target="#login">Login</a> */}
             </div>
             <img
               className="img-fluid w-50 d-none d-sm-block"

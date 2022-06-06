@@ -40,7 +40,7 @@ const Header = () => {
                 href="http://localhost:8007/login"
                 className="nav-link link-color"
               >
-                Login
+                Logout
               </a>
             </li>
           </ul>
