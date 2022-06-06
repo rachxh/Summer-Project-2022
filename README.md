@@ -1,6 +1,6 @@
 # Summer project 2022
 
-Simple Symfony and React app for plant care.
+App for plant lovers developed with React JS and Symfony.
 
 ## Features
 
@@ -39,6 +39,5 @@ Simple Symfony and React app for plant care.
 1.  [Symfony](https://symfony.com/)
 2.  [React](https://reactjs.org/)
 3.  [PHP](https://www.php.net/)
-4.  [Stimulus](https://stimulus.hotwired.dev)
-5.  [MySQL](https://www.mysql.com)
-6.  [SymfonyMAMP](https://github.com/kalwar/Symfony-MAMP)
+4.  [MySQL](https://www.mysql.com)
+5.  [SymfonyMAMP](https://github.com/kalwar/Symfony-MAMP)
