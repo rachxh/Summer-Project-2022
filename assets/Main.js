@@ -18,7 +18,6 @@ function Main() {
 
           <Route path="plant/:id" element={<PlantSingle />} />
           {/* <Route path="myPlants" element={<MyPlants />} /> */}
-
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
         </Routes>
