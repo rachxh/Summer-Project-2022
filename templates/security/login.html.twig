@@ -9,11 +9,11 @@
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
+        <div class="alert alert-danger">
             You are logged in as {{ app.user.userIdentifier }}. Please confirm <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-
+    <br>
     <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
     <label for="inputEmail" class="col-form-label" >Email:</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
