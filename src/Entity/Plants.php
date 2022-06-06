@@ -28,15 +28,18 @@ class Plants
     #[ORM\Column(type: 'text', nullable: true)]
     private $conditions;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $difficulty;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $pets;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'plants')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private $user;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $favourite;
 
     public function getId(): ?int
     {
@@ -135,6 +138,18 @@ class Plants
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function isFavourite(): ?bool
+    {
+        return $this->favourite;
+    }
+
+    public function setFavourite(?bool $favourite): self
+    {
+        $this->favourite = $favourite;
 
         return $this;
     }

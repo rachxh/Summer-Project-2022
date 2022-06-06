@@ -7,7 +7,6 @@ import AboutUs from "./pages/AboutUs";
 // import PlantList from "./pages/PlantList";
 import PlantSingle from "./pages/PlantSingle";
 import Layout from "./components/Layout";
-import Login from "./pages/Login";
 
 function Main() {
   return (
