@@ -58,7 +58,7 @@ class AppController extends AbstractController
     }
 
 
-    #[Route('/plants/{id}/add', name: 'add_favourite')] 
+    #[Route('/plants/{id}/add', name: 'add_favourite', methods:['GET'])] 
         
         public function add(ManagerRegistry $doctrine, int $id): Response
     {
@@ -72,17 +72,17 @@ class AppController extends AbstractController
         $em->persist($plant);
         $em->flush();
 
-        $data = [
-            'id' => $plant->getId(),
-            'name' => $plant->getName(),
-            'name_2' => $plant->getName2(),
-            'img' => $plant->getImg(),
-            'water' => $plant->getWater(),
-            'conditions' => $plant->getConditions(),
-            'difficulty' => $plant->getDifficulty()
-        ];
+        // $data = [
+        //     'id' => $plant->getId(),
+        //     'name' => $plant->getName(),
+        //     'name_2' => $plant->getName2(),
+        //     'img' => $plant->getImg(),
+        //     'water' => $plant->getWater(),
+        //     'conditions' => $plant->getConditions(),
+        //     'difficulty' => $plant->getDifficulty()
+        // ];
         
-        return $this->json($data);
+        return $this->json($this->getUser());
 
     }
 
