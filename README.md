@@ -2,6 +2,18 @@
 
 Simple Symfony and React app for plant care.
 
+## Features
+
+ - View the plant catalogue
+ - View detailed plant care instructions
+ - Search by name
+ - Filter by care difficulty
+ - Filter by pet friendliness
+ - Order AZ & ZA
+ - Register and login with your account
+ - Add plants to your personal collection
+ - Set reminders to water your plants
+
 # Steps to follow
 
 1. Copy the folder to SymfonyMAMP and rename to "web". Then cd to "web"
