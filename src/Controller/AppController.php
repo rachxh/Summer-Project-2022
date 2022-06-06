@@ -56,61 +56,24 @@ class AppController extends AbstractController
 
         return $this->json($data);
     }
-<<<<<<< HEAD
-    #[Route('/plants/{id}', name: 'plant_add', methods: ['PUT', 'PATCH'])]
-    public function add(Request $request, int $id, ManagerRegistry $doctrine): Response
-=======
 
-
-    #[Route('/plants/{id}/add', name: 'add_favourite', methods:['GET'])] 
+    // #[Route('/plants/{id}/add', name: 'add_favourite', methods:['GET'])] 
         
-        public function add(ManagerRegistry $doctrine, int $id): Response
->>>>>>> 46e6351727bd77722747455468ea2a5838d8618b
-    {
-        $em = $doctrine->getManager();
-        $plant = $em->getRepository(Plants::class)->find($id);
-           if (!$plant) {
-            return $this->json('No project found for id ' .$id, 404);
-        }
-        $content = json_decode($request->getContent());
-        $plant->setFavourite($content->favourite);
-        $em->flush();
-
-        return $this->json('Plant added to favourites');
-    }
-
-
-<<<<<<< HEAD
-    // #[Route('/plants/add', name: 'add_favourite', methods: ['GET'])]
-        
-    //     public function add(): Response
+    //     public function add(ManagerRegistry $doctrine, int $id): Response
     // {
-        // $em = $doctrine->getManager();
-        // $plant = $doctrine->getRepository(Plants::class)->find($id);
-        // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        // $plant = new Plants();
-        // $plant->setName($request->request->get('name'));
-        // $user = $this->getUser();
-        // $content=$this->jsonResponseFactory->create($user);
-        // $plant->setUser($user);
+    //     $em = $doctrine->getManager();
+    //     $plant = $em->getRepository(Plants::class)->find($id);
+    //        if (!$plant) {
+    //         return $this->json('No project found for id ' .$id, 404);
+    //     }
+    //     $content = json_decode($request->getContent());
+    //     $plant->setFavourite($content->favourite);
+    //     $em->flush();
 
-        // if (!$plant) {
-        //     return $this->json('No plant found for id' . $id, 404);
-        // }
-
-        // if (!$user) {
-        //     return $this->json('No user found', 404);
-        // }
-
-
-        // $em->persist($user);
-        // $em->persist($plant);
-        // $em->flush();
-        
-        // return $this->json('saved the plant successfully'. $plant->getId(). 'by ' .$user->getUserIdentifier());
-    //     return $this->json(['user' => $user->getUserIdentifier()]);
+    //     return $this->json('Plant added to favourites');
     // }
-=======
+
+
         // $data = [
         //     'id' => $plant->getId(),
         //     'name' => $plant->getName(),
@@ -121,10 +84,9 @@ class AppController extends AbstractController
         //     'difficulty' => $plant->getDifficulty()
         // ];
         
-        return $this->json($this->getUser());
+        // return $this->json($this->getUser());
 
     }
->>>>>>> 46e6351727bd77722747455468ea2a5838d8618b
 
     // #[Route('/myplants', name: 'add_favourite')] 
         
@@ -138,5 +100,4 @@ class AppController extends AbstractController
     //     return $this->json($plants);
 
     // }
-}   
 
