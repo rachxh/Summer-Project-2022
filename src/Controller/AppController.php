@@ -79,7 +79,7 @@ class AppController extends AbstractController
         }
     
     #[Route('/favourite', name: 'app_myplants', methods:['GET'])]
-    public function all(Request $request, ManagerRegistry $doctrine): Response
+    public function all(ManagerRegistry $doctrine): Response
         {  
         $em = $doctrine->getManager();    
         $myplants = $em->getRepository(Favourite::class)->findAll();
