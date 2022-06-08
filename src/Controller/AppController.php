@@ -113,5 +113,28 @@ class AppController extends AbstractController
 
         return $this->json('Deleted a plant successfully with id ' . $id);
     }
+
+    #[Route('/favourite/{id}', name: 'favourite_view', methods: ['GET'])]
+    public function view(int $id, ManagerRegistry $doctrine): Response
+    {
+        $favourite = $doctrine->getRepository(Favourite::class)->find($id);
+
+
+        if (!$favourite) {
+            return $this->json('No plant found for id' . $id, 404);
+        }
+
+
+        $data = [
+            'id' => $favourite->getId(),
+            'name' => $favourite->getName(),
+            'img' => $favourite->getImg(),
+            'water' => $favourite->getWater(),
+            'conditions' => $favourite->getConditions(),
+            'difficulty' => $favourite->getDifficulty(),
+        ];
+
+        return $this->json($data);
+    }
 }
     
