@@ -4,8 +4,7 @@
 
 return array (
   'APP_ENV' => 'prod',
-  'APP_SECRET' => 'a8255cedf849cb84aca9642131f20a68',
-  'DATABASE_URL' => 'mysql://root:lionPass@db:3306/PlantDB?serverVersion=5.7',
-  $db = parse_url(getenv("DATABASE_URL")),
-  $db["path"] = ltrim($db["path"], "/")
+  // 'APP_SECRET' => 'a8255cedf849cb84aca9642131f20a68',
+  'APP_SECRET' => '1b6cba845c9a73e9babb3804d0dc31a6',
+  'DATABASE_URL' => 'mysql://root:lionPass@db:3306/PlantDB?serverVersion=5.7'
 );
