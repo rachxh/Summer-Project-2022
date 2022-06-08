@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import PlantCard from "./PlantCard";
+import LikeCard from "./LikeCard";
 import Header from "./Header";
 import Footer from "./Footer";
 
 const MyPlants = () => {
-  const [myPlants, setMyPlants] = useState([ ]);
+  const [myPlants, setMyPlants] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:8007/api/favourite")
       .then((res) => {
         setMyPlants(res.data);
+        console.log(res.data);
       })
       .catch((error) => {
         console.error(error);
@@ -22,11 +23,12 @@ const MyPlants = () => {
     <>
     <Header />
     <div className="sp-container">
-      <h1>My favorite plants 💕</h1>
+      <h1>My favorite plants ....💕</h1>
       {
         <div className="plant-list">
       {myPlants.map((myPlant) => {
-      <PlantCard
+        console.log('like is here', myPlants);
+      <LikeCard
       key={myPlant.id}
       id={myPlant.id}
       name={myPlant.name}
