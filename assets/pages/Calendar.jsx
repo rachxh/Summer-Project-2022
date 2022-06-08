@@ -3,8 +3,8 @@ import React from 'react';
 const Calendar = () => {
 
 let gapi = window.gapi
-let CLIENT_ID = "PASTE YOUR CLIENT ID HERE"
-let API_KEY = "PASTE YOUR API KEY HERE"
+let CLIENT_ID = "244899854192-vkuvg34746lqksam54c9a0qs2a7mfcs6.apps.googleusercontent.com"
+let API_KEY = "AIzaSyAMcXmDgaVLLe9cCT4kAzPqm-AVs5TTnZo"
 let DISCOVERY_DOCS=["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
 let SCOPES = "https://www.googleapis.com/auth/calendar.events"
 
@@ -13,8 +13,8 @@ const addCalendarEvent = (startTime,address,clientName) => {
 
     gapi.load('client:auth2', () => {
     gapi.client.init({
-        apiKey: AIzaSyAMcXmDgaVLLe9cCT4kAzPqm-AVs5TTnZo,
-        clientId: 244899854192-vkuvg34746lqksam54c9a0qs2a7mfcs6.apps.googleusercontent.comD,
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
         discoveryDocs: DISCOVERY_DOCS,
     scope: SCOPES,
     })
