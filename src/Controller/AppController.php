@@ -71,7 +71,6 @@ class AppController extends AbstractController
             $favourite->setDifficulty($request->request->get('difficulty'));
             $favourite->setPets($request->request->get('pets'));
 
-    
             $entityManager->persist($favourite);
             $entityManager->flush();
     
@@ -116,4 +115,3 @@ class AppController extends AbstractController
     }
 }
     
-

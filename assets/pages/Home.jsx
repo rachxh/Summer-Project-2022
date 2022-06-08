@@ -25,7 +25,7 @@ const Home = () => {
               src="https://cdn.pixabay.com/photo/2019/04/10/12/32/house-plants-4116992__480.png"
               alt=""
             />
-          </div>
+          </div> 
         </div>
       </section>
       <PlantList />
