@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}PlantCare{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -14,6 +13,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
         <link rel="stylesheet" href="/styles/app.css" >
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico')}}" />
     </head>
     <body>
         {% block body %}{% endblock %}
