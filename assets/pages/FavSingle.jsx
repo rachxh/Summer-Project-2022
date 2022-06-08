@@ -4,17 +4,17 @@ import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const PlantSingle = () => {
+const FavSingle = () => {
 
-  const [item, setItem] = useState({});
+  const [favPlant, setFavPlant] = useState({});
   const [id, setId] = useState(useParams().id);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8007/api/plants/${id}`)
+      .get(`http://localhost:8007/api/favourite/${id}`)
       .then((res) => {
-        setItem(res.data);
-        console.log(res.data);
+        setFavPlant(res.data);
+        console.log('fav will be here', res.data);
       })
       .catch((error) => {
         console.error(error);
@@ -22,31 +22,24 @@ const PlantSingle = () => {
   }, []);
 
 
-  const addLike = (e) => {
-    e.preventDefault();
-    var bodyFormData = new FormData();
-    for (let key in item)
-      bodyFormData.append(key, item[key]);
-
-    axios.post(`http://localhost:8007/api/favourite`, bodyFormData)}
 
   return (
     <>
       <Header />
       <div className="sp-container">
-        <h1>{item.name}</h1>
+        <h1>{favPlant.name}</h1>
 
         <div className="sp-card">
-          <img src={item.img} alt="" />
+          <img src={favPlant.img} alt="{item.name}" />
           <div className="sp-text">
             <p className="sp-subtitle"> ☀️ Conditions: </p>
-            <p className="plant-detail"> {item.conditions}</p>
+            <p className="plant-detail"> {favPlant.conditions}</p>
             <p className="sp-subtitle"> 💦 Water: </p>
-            <p className="plant-detail">{item.water}</p>
+            <p className="plant-detail">{favPlant.water}</p>
             <p className="sp-subtitle"> 🌱 Difficulty: </p>
-            <p className="plant-detail">{item.difficulty} </p>
-            <button className="order-btn" onClick={addLike}>
-              Save ❤️
+            <p className="plant-detail">{favPlant.difficulty} </p>
+            <button className="order-btn" >
+             remove
             </button>
           </div>
         </div>
@@ -57,4 +50,4 @@ const PlantSingle = () => {
   );
 };
 
-export default PlantSingle;
+export default FavSingle;

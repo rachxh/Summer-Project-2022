@@ -7,6 +7,7 @@ import AboutUs from "./pages/AboutUs";
 import MyPlants from "./pages/MyPlants";
 import PlantSingle from "./pages/PlantSingle";
 import Layout from "./components/Layout";
+import FavSingle from "./pages/FavSingle";
 
 function Main() {
   return (
@@ -16,6 +17,7 @@ function Main() {
           <Route exact path="/" element={<Home />} />
           <Route path="/catalogue" element={<Home />} />
           <Route path="plant/:id" element={<PlantSingle />} />
+          <Route path="myFav/:id" element={<FavSingle />} />
           <Route exact path="/myPlants" element={<MyPlants />} />
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
