@@ -28,7 +28,7 @@ const PlantList = () => {
 
   const updateSearch = (e) => {
     setSearch(e.target.value);
-    console.log(search);
+
   };
 
   const handleSort = () => {

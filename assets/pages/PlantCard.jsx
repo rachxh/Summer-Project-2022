@@ -6,7 +6,7 @@ const PlantCard = (props) => {
 
 
     <div className="card" >
-    <Link to={`plant/${props.id}`} className="card-link" >
+    <Link to={`/plant/${props.id}`} className="card-link" >
       <img className="plant-img" src={props.img} alt={props.name} />
       <p className="card-name">{props.name}</p>
     
