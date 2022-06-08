@@ -16,7 +16,6 @@
     "symfony/flex": "^2",
     "symfony/form": "6.0.*",
     "symfony/framework-bundle": "6.0.*",
-    "symfony/maker-bundle": "^1.43",
     "symfony/proxy-manager-bridge": "6.0.*",
     "symfony/runtime": "6.0.*",
     "symfony/security-bundle": "6.0.*",
@@ -30,7 +29,8 @@
     "twig/twig": "^2.12|^3.0"
   },
   "require-dev": {
-    "symfony/dotenv": "6.0.*"
+    "symfony/dotenv": "6.0.*",
+    "symfony/maker-bundle": "^1.42"
   },
   "config": {
     "allow-plugins": {
