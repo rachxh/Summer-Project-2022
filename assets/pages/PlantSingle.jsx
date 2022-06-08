@@ -10,13 +10,18 @@ const PlantSingle = () => {
   const [item, setItem] = useState({});
   const [id, setId] = useState(useParams().id);
 
+  // const [data, setData] = useState({
+  //   name: "",
+  //   image: ""
+
+  // });
+
   useEffect(() => {
     axios
       .get(`http://localhost:8007/api/plants/${id}`)
       .then((res) => {
         setItem(res.data);
-        setId(res.data);
-        console.log(item);
+        console.log(res.data);
       })
       .catch((error) => {
         console.error(error);
@@ -29,8 +34,20 @@ const PlantSingle = () => {
   //   setSubmit(true);
   // };
 
-  let emptyName = "";
-  // let secondName = (!emptyName) ? {item.name_2} : "None";
+  const addLike = (e) => {
+    e.preventDefault();
+    console.log(item)
+    var bodyFormData = new FormData();
+    for (let key in item)
+      bodyFormData.append(key, item[key]);
+
+    axios.post(`http://localhost:8007/api/favourite`, bodyFormData)}
+  // .then(function (response) {
+  //   console.log(response);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // })};
 
   return (
     <>
@@ -41,16 +58,15 @@ const PlantSingle = () => {
         <div className="sp-card">
           <img src={item.img} alt="" />
           <div className="sp-text">
-            {/* <p className="sp-subtitle"> 🗂 Second Name:  </p>
-
-        <p className="plant-detail"> </p>  */}
             <p className="sp-subtitle"> ☀️ Conditions: </p>
             <p className="plant-detail"> {item.conditions}</p>
             <p className="sp-subtitle"> 💦 Water: </p>
             <p className="plant-detail">{item.water}</p>
             <p className="sp-subtitle"> 🌱 Difficulty: </p>
             <p className="plant-detail">{item.difficulty} </p>
-            <button className="order-btn">Save ❤️</button>
+            <button className="order-btn" onClick={addLike}>
+              Save ❤️
+            </button>
           </div>
         </div>
       </div>

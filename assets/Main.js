@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
-// import PlantList from "./pages/PlantList";
+import MyPlants from "./pages/MyPlants";
 import PlantSingle from "./pages/PlantSingle";
 import Layout from "./components/Layout";
 
@@ -15,9 +15,8 @@ function Main() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/catalogue" element={<Home />} />
-
           <Route path="plant/:id" element={<PlantSingle />} />
-          {/* <Route path="myPlants" element={<MyPlants />} /> */}
+          <Route exact path="/myPlants" element={<MyPlants />} />
           <Route path="aboutUs" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
         </Routes>
