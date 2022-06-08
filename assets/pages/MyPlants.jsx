@@ -23,17 +23,18 @@ const MyPlants = () => {
     <>
     <Header />
     <div className="sp-container">
-      <h1>My favorite plants ....💕</h1>
+      <h1>My favorite plants 💕</h1>
       {
         <div className="plant-list">
       {myPlants.map((myPlant) => {
-        console.log('like is here', myPlants);
-      <LikeCard
-      key={myPlant.id}
-      id={myPlant.id}
-      name={myPlant.name}
-      img={myPlant.img}
-    />
+        return <LikeCard
+          key={myPlant.id}
+          id={myPlant.id}
+          name={myPlant.name}
+          img={myPlant.img}
+        />
+      
+ 
       })}
       </div>
       }

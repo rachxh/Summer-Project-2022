@@ -9,7 +9,6 @@ const LikeCard = (props) => {
       <img className="plant-img" src={props.img} alt={props.name} />
       <p className="card-name">{props.name}</p>
       <button>Set reminder</button>
-    
    </Link>
     </div>
   );
