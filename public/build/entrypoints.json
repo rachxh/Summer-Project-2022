@@ -2,12 +2,12 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/build/runtime.61b1725c.js",
-        "/build/245.415f99d4.js",
-        "/build/app.cd19833b.js"
+        "/build/runtime.js",
+        "/build/vendors-node_modules_fortawesome_free-solid-svg-icons_index_es_js-node_modules_fortawesome_re-ec1940.js",
+        "/build/app.js"
       ],
       "css": [
-        "/build/app.e1206cbf.css"
+        "/build/app.css"
       ]
     }
   }
