@@ -58,7 +58,7 @@
   },
   "scripts": {
     "auto-scripts": {
-      "cache:clear": "symfony-cmd",
+      "cache:clear -e prod --no-debug": "symfony-cmd",
       "assets:install %PUBLIC_DIR%": "symfony-cmd"
     }
   },
