@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDownAZ } from '@fortawesome/free-solid-svg-icons';
+import Swal from "sweetalert2";
 
 const sortIcon = <FontAwesomeIcon icon={faArrowDownAZ} />;
 
@@ -15,21 +16,57 @@ const MyPlants = () => {
   const [isPetFriendly,setIsPetFriendly] = useState(true);
 	const [filterPlants, setFilterPlants] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8007/api/favourite")
-      .then((res) => {
-        setMyPlants(res.data);
-        setFilterPlants(res.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  useEffect(() => getMyPlants(), []);
+
+  const getMyPlants = () => { 
+  axios
+    .get("http://localhost:8007/api/favourite")
+    .then((res) => {
+      setMyPlants(res.data);
+      setFilterPlants(res.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
+ 
 
   const updateSearch = (e) => {
     setSearch(e.target.value);
+  };
 
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      icon: "danger",
+      title: "You won't be able to revert this!",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, please delete it",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:8007/api/favourite/${id}`)
+          .then(function (response) {
+            Swal.fire({
+              icon: "success",
+              title: "Plant deleted successfully!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            getMyPlants()
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: "An error occurred!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          });
+      }
+    });
   };
 
 const handleSort = () => {
@@ -119,20 +156,7 @@ if (isPetFriendly) {
 				{sortIcon}
 			</button>
 		</div>
-      
-      {/* {
-        <div className="plant-list">
-      {
-      myPlants.map((myPlant) => (
-        <LikeCard
-          key={myPlant.id}
-          id={myPlant.id}
-          name={myPlant.name}
-          img={myPlant.img}
-        />
-      ))}
-      </div>
-      } */}
+
 
 {
         <div className="plant-list">
@@ -146,6 +170,7 @@ if (isPetFriendly) {
               id={myPlant.id}
               name={myPlant.name}
               img={myPlant.img}
+              onClick={id => handleDelete(id)}
               />
             ))}
         </div>
