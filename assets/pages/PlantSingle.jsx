@@ -15,7 +15,6 @@ const PlantSingle = () => {
       .get(`http://localhost:8007/api/plants/${id}`)
       .then((res) => {
         setItem(res.data);
-        console.log(res.data);
       })
       .catch((error) => {
         console.error(error);

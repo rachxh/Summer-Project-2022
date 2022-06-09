@@ -223,9 +223,11 @@ h1 {
   padding: 0 1rem;
 }
 
-.sp-img {
-  width: 360px;
-  height: auto;
+
+.sp-img{
+width: 380px;
+height: 460px;
+
 }
 
 .register-row {
