@@ -316,3 +316,12 @@ h1 {
   height: 0.8em;
   margin-right: 0.2em;
 }
+
+.link {
+  color: white;
+  padding: 5px;
+}
+
+.link:hover {
+  color: #9fc131;
+}
