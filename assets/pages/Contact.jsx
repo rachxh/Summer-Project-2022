@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT =
+  "https://public.herotofu.com/v1/68ba9b40-e7cb-11ec-b069-efe5ca590096";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -14,10 +15,9 @@ const Contact = () => {
 
   if (submitted) {
     return (
-      <>
-        <h2 className="text-2xl">Thank you!</h2>
-        <div className="text-md">We'll be in touch soon.</div>
-      </>
+      <div className="alert alert-success">
+        <p>Thank you! We'll be in touch soon.</p>
+      </div>
     );
   }
 
@@ -30,42 +30,69 @@ const Contact = () => {
           action={FORM_ENDPOINT}
           onSubmit={handleSubmit}
           method="POST"
-          target="_blank"
+          // target="_blank"
         >
           <div className="form-group">
             <label htmlFor="yourName" className="col-form-label">
               First Name:
             </label>
-            <input className="form-control" type="text" name="firstName" />
+            <input
+              className="form-control"
+              type="text"
+              name="firstName"
+              id="firstName"
+            />
           </div>
           <div className="form-group">
             <label htmlFor="lastName" className="col-form-label">
               Last Name:
             </label>
-            <input className="form-control" type="text" name="lastName" />
+            <input
+              className="form-control"
+              type="text"
+              name="lastName"
+              id="lastName"
+            />
           </div>
           <div className="form-group">
             <label htmlFor="email" className="col-form-label">
               Email:
             </label>
-            <input className="form-control" type="email" name="email" />
+            <input
+              className="form-control"
+              type="email"
+              name="email"
+              id="email"
+            />
           </div>
           <div className="form-group">
             <label htmlFor="phone" className="col-form-label">
               Phone:
             </label>
-            <input className="form-control" type="phone" name="phone" />
+            <input
+              className="form-control"
+              type="phone"
+              id="phone"
+              name="phone"
+            />
           </div>
           <div className="form-group">
             <label htmlFor="message" className="col-form-label">
               Message:
             </label>
-            <textarea className="form-control" rows="3"></textarea>
+            <textarea
+              className="form-control"
+              rows="3"
+              name="message"
+              id="message"
+            ></textarea>
           </div>
           <div className="form-group">
-            <button type="button" className="btn btn-success btn-contact">
-              Send Message
-            </button>
+            <input
+              type="submit"
+              className="btn btn-success btn-contact"
+              value="Send Message"
+            />
           </div>
         </form>
       </div>
