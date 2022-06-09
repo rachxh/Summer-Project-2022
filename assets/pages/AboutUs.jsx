@@ -29,7 +29,7 @@ const AboutUs = () => {
         <div className=" about-card">
             <div className="about-text">
             <p>
-           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non atque enim ad sit quos nostrum possimus excepturi, beatae magnam autem natus dicta eligendi neque quibusdam? Modi ea voluptate quisquam itaque nulla aperiam fugit nesciunt, fugiat molestias similique minima expedita ratione aspernatur reprehenderit accusamus eius corporis porro. Voluptas molestiae debitis velit sapiente odio ad blanditiis voluptatibus possimus expedita enim earum, voluptate ex. Illo, facere quod? Ullam molestias amet consequuntur corporis doloribus corrupti mollitia voluptatum! Porro voluptate, suscipit nostrum quisquam at amet.
+          Rachel is web development student based in Helsinki who loves nature and greens. She likes to have plants and flowers at home, her favorite plant is Aloe Vera. Many of the plants I had at home didn't survive long. So I shop hope with the information we gather on this website, it can help a plant killer to become a long term plant keeper. Long live the plants!
             </p>
             </div>
             <div >

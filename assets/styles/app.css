@@ -146,6 +146,7 @@ h1 {
 }
 .link-color {
   color: white !important;
+  padding: 0 1rem !important;
 }
 .btn-banner {
   background-color: green;
@@ -153,49 +154,6 @@ h1 {
   color: white;
   padding: 0.5rem 1.5rem;
   border: none;
-}
-
-.about-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.about-card,
-.sp-card {
-  display: flex;
-  flex-direction: row;
-  margin: 2rem 5rem;
-}
-
-.about-text,
-.sp-text {
-  padding: 0 2rem;
-}
-.about-img {
-  width: 300px;
-  height: 300px;
-}
-.btn-aboutus {
-  padding: 0.4rem 1.2rem;
-  border-radius: 25px;
-  border: none;
-  background-color: #9fc131;
-  color: white;
-}
-
-.sp-container {
-  min-height: 85vh;
-}
-.sp-subtitle {
-  color: green;
-  font-weight: bolder;
-}
-.plant-detail {
-  border-left: 4px solid #9fc131;
-  padding: 0 1rem;
-}
-.filters {
-  margin: 0 0 0 9rem;
 }
 
 .care-level {
@@ -219,13 +177,63 @@ h1 {
   background-color: #9fc131;
   color: green;
 }
+.filters {
+  margin: 0 0 0 9rem;
+}
+/* ...about-page... */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.about-card,
+.sp-card {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 5rem;
+}
+
+
+.about-text,
+.sp-text {
+  padding: 0 2rem;
+}
+.about-img {
+  width: 300px;
+  height: 300px;
+}
+.btn-aboutus {
+  padding: 0.4rem 1.2rem;
+  border-radius: 25px;
+  border: none;
+  background-color: #9fc131;
+  color: white;
+}
+
+/* ...plant-single... */
+.sp-container {
+  min-height: 85vh;
+}
+.sp-subtitle {
+  color: green;
+  font-weight: bolder;
+}
+.plant-detail {
+  border-left: 4px solid #9fc131;
+  padding: 0 1rem;
+}
+
+.sp-img{
+width: 360px;
+height: auto;
+}
 
 .register-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-/* ....myFav page */
+/* ....myFav page....*/
 .btn-reminder {
   padding: 0.2rem 1rem;
   margin: 0.5rem 0.5rem;
@@ -255,4 +263,60 @@ h1 {
   text-transform: capitalize;
   font-size: 1rem;
   margin: 0;
+}
+
+
+
+/* ...plantSingle page... */
+
+.like-btn{
+  padding: 0.2rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 25px;
+  border: none;
+  background-color: grey;
+  color: green;
+}
+
+.like-btn:hover{
+  background-color: #9fc131;
+}
+
+
+#like-button {
+  color:  #888;
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: 0.1em solid;
+  border-radius: 1em;
+  padding: 0.333em 1em 0.25em;
+  line-height: 1.2em;
+  box-shadow: 0 0.25em 1em -0.25em;
+  cursor: pointer;
+  transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+  outline: 0;
+  margin: 1.5rem 0;
+  
+  
+}
+#like-button:hover {
+  color: indianred;
+}
+
+#like-button:active {
+  transform: scale(0.95);
+}
+
+#like-button.selected {
+  color: #FFF;
+  background-color: indianred;
+  border-color:indianred;
+}
+
+.heart-icon {
+  display: inline-block;
+  fill: currentColor;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.2em;
 }
