@@ -13,9 +13,8 @@ const Home = () => {
             <div>
               <h1 className="banner-title">Take care of your plants </h1>
               <p className="lead my-4 ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-                quaerat inventore sit ipsum illo velit ex, quos quisquam nam
-                veniam?
+              Plant killers & Plant nurturers, this site is for you! 
+              --Select and add your favorite plants! 
               </p>
             </div>
             <img
